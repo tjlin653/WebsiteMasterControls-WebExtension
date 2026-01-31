@@ -11,7 +11,7 @@
         }
     ],
     "action": {
-        "default-popup": "popup.html",
-        "default-title": "Website Master Controls"
+        "default_popup": "popup.html",
+        "default_title": "Website Master Controls"
     }
 }

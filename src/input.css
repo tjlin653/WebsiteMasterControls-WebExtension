@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+input[type=range]::-webkit-slider-runnable-track {
+  @apply h-0.75;
+}
