@@ -1,14 +1,17 @@
 {
-    "manifest_version": 1,
-    "name": "UI Master Controls",
+    "manifest_version": 3,
+    "name": "WebsiteMasterControls",
     "version": "0.1.0",
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
+            "matches": [
+                "http://*/*",
+                "https://*/*"],
             "js": ["content.js"]
         }
     ],
     "action": {
-        "default-popup": "popup.html"
+        "default-popup": "popup.html",
+        "default-title": "Website Master Controls"
     }
 }
