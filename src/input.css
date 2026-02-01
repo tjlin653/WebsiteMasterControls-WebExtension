@@ -5,19 +5,3 @@ input[type=range] {
   appearance: none;
   outline: none;
 }
-
-.options {
-  @apply p-4 flex gap-2 items-center;
-}
-
-.optionLabel {
-  @apply light-mode-text dark:dark-mode-text text-base;
-}
-
-.btn {
-  @apply light-btn-bg dark:dark-btn-bg rounded-md w-23 h-8;
-}
-
-.optionNumber {
-  @apply light-mode-text dark:dark-mode-text text-base;
-}

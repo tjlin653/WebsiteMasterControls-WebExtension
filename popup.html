@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Master Controls</title>
     <link href="./dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="w-60 h-100 bg-gray-100 dark:bg-gray-800 px-2 py-2 shadow-xl">
-        <div class="options">
-            <p class="optionLabel">Font Size</p>
-            <div class="flex ml-auto">
-                <div class="btn flex items-center justify-center">
-                    <p class="optionNumber">0</p>
+        <div class="p-4 flex gap-2 items-center">
+            <p class="text-gray-100 text-base">Font Size</p>
+            <div class="flex items-center">
+                <div class="bg-gray-800 rounded-md w-23 h-8 flex items-center justify-between">
+                    <div class="bg-gray-100 w-10 flex items-center" style="height: 100%">
+                        <i class="fa-solid fa-minus"></i>
+                    </div>
+                    <p class="text-gray-100 text-base flex px-2">0</p>
+                    <div class="bg-gray-100 w-10 flex items-center" style="height: 100%">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
                 </div>
             </div>
         </div>
