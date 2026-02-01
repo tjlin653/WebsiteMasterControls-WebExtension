@@ -5,3 +5,25 @@ input[type=range] {
   appearance: none;
   outline: none;
 }
+
+@layer components {
+  .optionContainer {
+    @apply p-4 flex gap-2 items-center;
+  }
+
+  .addOrSubtract {
+    @apply bg-gray-700 w-10 flex items-center justify-center hover:bg-gray-600 duration-150 h-full;
+  }
+
+  .unitContainer {
+    @apply bg-gray-700 w-12 flex items-center justify-center h-full;
+  }
+
+  .currentUnit {
+    @apply text-gray-200 text-base;
+  }
+
+  .icon {
+    @apply text-amber-400;
+  }
+}
