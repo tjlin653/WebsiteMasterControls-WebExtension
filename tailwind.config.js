@@ -12,8 +12,10 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                "custom-black": "#202020",
-                "custom-white": "#e3e3e3"
+                "dark-mode-text": "text-gray-200",
+                "light-mode-text": "text-gray-800",
+                "dark-btn-bg": "bg-gray-700",
+                "light-btn-bg": "bg-gray-50"
             }
         },
     },

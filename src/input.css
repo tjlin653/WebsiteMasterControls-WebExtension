@@ -11,13 +11,13 @@ input[type=range] {
 }
 
 .optionLabel {
-  @apply text-gray-800 dark:text-gray-200 text-base;
+  @apply light-mode-text dark:dark-mode-text text-base;
 }
 
 .btn {
-  @apply bg-gray-50 dark:bg-gray-700 rounded-md w-23 h-8;
+  @apply light-btn-bg dark:dark-btn-bg rounded-md w-23 h-8;
 }
 
 .optionNumber {
-  @apply text-gray-800 dark:text-gray-200 text-base;
+  @apply light-mode-text dark:dark-mode-text text-base;
 }
