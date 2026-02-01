@@ -10,7 +10,12 @@ module.exports = {
         "./src/**/*.js"
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                "custom-black": "#202020",
+                "custom-white": "#e3e3e3"
+            }
+        },
     },
     plugins: [],
 }

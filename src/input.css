@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
-input[type=range]::-webkit-slider-runnable-track {
-  @apply h-0.75;
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.slider {
+  @apply h-1 bg-gray-600 accent-amber-500 focus:outline-none;
 }
