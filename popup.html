@@ -8,9 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="w-65 h-100 bg-gray-100 dark:bg-gray-800 px-2 py-2 shadow-xl">
+    <div class="w-70 h-100 bg-gray-100 dark:bg-gray-800 px-2 py-2 shadow-xl">
         <div class="optionContainer">
-            <p class="text-gray-300 text-base">Font Size</p>
+            <p class="optionLabel">Background</p>
+            <div class="flex h-8 items-center ml-auto">
+                <input type="color" class="colorSwatch"/>
+                <div class="hexContainer">
+                    <p class="currentUnit">#000000</p>
+                </div>
+            </div>
+        </div>
+        <div class="optionContainer">
+            <p class="optionLabel">Font Size</p>
             <div class="flex h-8 items-center ml-auto">
                 <div class="addOrSubtract rounded-l-lg">
                     <i class="fa-solid fa-minus icon"></i>
