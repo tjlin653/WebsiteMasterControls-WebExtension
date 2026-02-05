@@ -236,6 +236,9 @@ input[type="color"]::-webkit-color-swatch {
   border-top-left-radius: 20%;
   border-bottom-left-radius: 20%;
 }
+input[type="text"] {
+  text-transform: uppercase;
+}
 @layer components {
   .optionContainer {
     display: flex;
