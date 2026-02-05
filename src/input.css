@@ -52,4 +52,8 @@ input[type="color"]::-webkit-color-swatch {
   .hexContainer {
     @apply w-22 h-full bg-gray-700 rounded-r-lg flex items-center justify-center;
   }
+
+  .inputHex {
+    @apply w-22 h-full text-gray-200 text-base px-2 rounded-r-lg;
+  }
 }

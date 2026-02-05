@@ -299,6 +299,16 @@ input[type="color"]::-webkit-color-swatch {
     border-bottom-right-radius: var(--radius-lg);
     background-color: var(--color-gray-700);
   }
+  .inputHex {
+    height: 100%;
+    width: calc(var(--spacing) * 22);
+    border-top-right-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+    padding-inline: calc(var(--spacing) * 2);
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+    color: var(--color-gray-200);
+  }
 }
 @property --tw-shadow {
   syntax: "*";
