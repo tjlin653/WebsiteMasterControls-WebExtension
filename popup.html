@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <a href="google.com">google</a>
     <div class="w-70 h-100 bg-gray-100 dark:bg-gray-800 px-2 py-2 shadow-xl">
         <div class="optionContainer">
             <p class="optionLabel">Background</p>
@@ -22,31 +23,31 @@
         <div class="optionContainer">
             <p class="optionLabel">Text Color</p>
             <div class="flex h-8 items-center ml-auto">
-                <input type="color" class="colorSwatch"/>
+                <input type="color" class="colorSwatch" id="textColorSwatch"/>
                 <div class="hexContainer">
-                    <input type="text" placeholder="#000000" class="inputHex"/>
+                    <input type="text" value="#000000" class="inputHex" id="textHex"/>
                 </div>
             </div>
         </div>
         <div class="optionContainer">
             <p class="optionLabel">Link Color</p>
             <div class="flex h-8 items-center ml-auto">
-                <input type="color" class="colorSwatch"/>
+                <input type="color" class="colorSwatch" id="linkColorSwatch"/>
                 <div class="hexContainer">
-                    <input type="text" placeholder="#000000" class="inputHex"/>
+                    <input type="text" value="#000000" class="inputHex" id="linkHex"/>
                 </div>
             </div>
         </div>
         <div class="optionContainer">
             <p class="optionLabel">Font Size</p>
             <div class="flex h-8 items-center ml-auto">
-                <div class="addOrSubtract rounded-l-lg">
+                <div class="addOrSubtract rounded-l-lg" id="subtractFontSize">
                     <i class="fa-solid fa-minus icon"></i>
                 </div>
                 <div class="unitContainer">
-                    <p class="currentUnit">0 px</p>
+                    <p class="currentUnit">0 rem</p>
                 </div>
-                <div class="addOrSubtract rounded-r-lg">
+                <div class="addOrSubtract rounded-r-lg" id="addFontSize">
                     <i class="fa-solid fa-plus icon"></i>
                 </div>
             </div>
@@ -72,7 +73,7 @@
                     <i class="fa-solid fa-minus icon"></i>
                 </div>
                 <div class="unitContainer">
-                    <p class="currentUnit">0 px</p>
+                    <p class="currentUnit">0 em</p>
                 </div>
                 <div class="addOrSubtract rounded-r-lg">
                     <i class="fa-solid fa-plus icon"></i>

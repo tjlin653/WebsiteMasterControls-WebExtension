@@ -2,6 +2,7 @@
     "manifest_version": 3,
     "name": "WebsiteMasterControls",
     "version": "0.1.0",
+    "permissions": ["activeTab", "scripting", "storage"],
     "content_scripts": [
         {
             "matches": [
@@ -12,6 +13,10 @@
     ],
     "action": {
         "default_popup": "popup.html",
-        "default_title": "Website Master Controls"
+        "default_title": "Website Master Controls",
+        "default_icon": "images/icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
     }
 }
