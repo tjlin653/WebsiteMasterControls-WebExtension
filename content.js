@@ -48,3 +48,31 @@ addFontSize.addEventListener('click', () => {
         textSize.style.fontSize = (currentFontSize +1) + 'px';
     });
 });
+
+const lineHeightDisplay = document.getElementById('lineHeightDisplay');
+
+let subtractLineHeight = document.getElementById('subtractLineHeight');
+subtractLineHeight.addEventListener('click', () => {
+    let currentLineValue = parseFloat(lineHeightDisplay.textContent);
+    if (!isNaN(currentLineValue)) {
+        currentLineValue--;
+        lineHeightDisplay.textContent = currentLineValue;
+    }
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textHeight => {
+        let currentLineHeight = parseFloat(window.getComputedStyle(textHeight).lineHeight);
+        textHeight.style.lineHeight = (currentLineHeight -1) + 'px';
+    });
+});
+
+let addLineHeight = document.getElementById('addLineHeight');
+addLineHeight.addEventListener('click', () => {
+    let currentLineValue = parseFloat(lineHeightDisplay.textContent);
+    if (!isNaN(currentLineValue)) {
+        currentLineValue++;
+        lineHeightDisplay.textContent = currentLineValue;
+    }
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textHeight => {
+        let currentLineHeight = parseFloat(window.getComputedStyle(textHeight).lineHeight);
+        textHeight.style.lineHeight = (currentLineHeight +1) + 'px';
+    });
+});
