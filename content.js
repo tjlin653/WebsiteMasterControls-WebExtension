@@ -21,10 +21,37 @@ linkColor.addEventListener('input', function() {
     });
 });
 
+const fontSizeDisplay = document.getElementById('fontSizeDisplay');
+function decreaseFontSize() {
+    let currentFontValue = parseFloat(fontSizeDisplay.textContent);
+    if (!isNaN(currentFontValue)) {
+        currentFontValue--;
+        fontSizeDisplay.textContent = currentFontValue;
+    }
+};
+
 let subtractFontSize = document.getElementById('subtractFontSize');
-let addFontSize = document.getElementById('addFontSize');
 subtractFontSize.addEventListener('click', () => {
-    document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a').forEach(font => {
-        
+    decreaseFontSize();
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textSize => {
+        let currentFontSize = parseFloat(window.getComputedStyle(textSize).fontSize);
+        textSize.style.fontSize = (currentFontSize -1) + 'px';
+    });
+});
+
+function increaseFontSize() {
+    let currentFontValue = parseFloat(fontSizeDisplay.textContent);
+    if (!isNaN(currentFontValue)) {
+        currentFontValue++;
+        fontSizeDisplay.textContent = currentFontValue;
+    }
+};
+
+let addFontSize = document.getElementById('addFontSize');
+addFontSize.addEventListener('click', () => {
+    increaseFontSize();
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textSize => {
+        let currentFontSize = parseFloat(window.getComputedStyle(textSize).fontSize);
+        textSize.style.fontSize = (currentFontSize +1) + 'px';
     });
 });
