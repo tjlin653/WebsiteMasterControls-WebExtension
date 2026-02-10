@@ -1,8 +1,7 @@
-let bgHex = document.getElementById('bgHex');
-let bgColor = document.getElementById('bgColorSwatch');
-bgColor.addEventListener('input', function() {
-    bgHex.value = bgColor.value;
-    document.body.style.backgroundColor = bgColor.value;
+chrome.runtime.onMessage.addListener((request) => {
+    if (request.action === "changeBgColor") {
+        document.body.style.backgroundColor = request.color;
+    }
 });
 
 let textHex = document.getElementById('textHex');
