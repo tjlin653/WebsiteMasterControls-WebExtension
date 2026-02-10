@@ -27,6 +27,15 @@ chrome.runtime.onMessage.addListener((request) => {
     }
 });
 
+chrome.runtime.onMessage.addListener((request) => {
+    if (request.action === "changeLineHeight") {
+        document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textSize => {
+            let currentLineHeight = parseFloat(window.getComputedStyle(textSize).lineHeight);
+            textSize.style.lineHeight = (currentLineHeight + request.amount) + 'px';
+        });
+    }
+});
+
 const lineHeightDisplay = document.getElementById('lineHeightDisplay');
 
 let subtractLineHeight = document.getElementById('subtractLineHeight');

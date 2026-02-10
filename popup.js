@@ -35,7 +35,6 @@ linkColor.addEventListener('input', () => {
 });
 
 const fontSizeDisplay = document.getElementById('fontSizeDisplay');
-
 let subtractFontSize = document.getElementById('subtractFontSize');
 subtractFontSize.addEventListener('click', () => {
     let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
@@ -55,11 +54,41 @@ addFontSize.addEventListener('click', () => {
     let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
     if (!isNaN(currentFontDisplay)) {
         currentFontDisplay++;
-        fontSizeDisplay.textContent = currentFontDisplay;
+        fontSizeDisplay.textContent = '+' + currentFontDisplay;
     }
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
             action: "changeFontSize",
+            amount: +1
+        });
+    });
+});
+
+const lineHeightDisplay = document.getElementById('lineHeightDisplay');
+let subtractLineHeight = document.getElementById('subtractLineHeight');
+subtractLineHeight.addEventListener('click', () => {
+    let currentHeightDisplay = parseFloat(lineHeightDisplay.textContent);
+    if (!isNaN(currentHeightDisplay)) {
+        currentHeightDisplay--;
+        lineHeightDisplay.textContent = currentHeightDisplay;
+    }
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "changeLineHeight",
+            amount: -1
+        });
+    });
+});
+let addLineHeight = document.getElementById('addLineHeight');
+addLineHeight.addEventListener('click', () => {
+    let currentHeightDisplay = parseFloat(lineHeightDisplay.textContent);
+    if (!isNaN(currentHeightDisplay)) {
+        currentHeightDisplay++;
+        lineHeightDisplay.textContent = '+' + currentHeightDisplay;
+    }
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "changeLineHeight",
             amount: +1
         });
     });
