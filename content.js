@@ -3,12 +3,10 @@ chrome.runtime.onMessage.addListener((request) => {
         document.body.style.backgroundColor = request.color;
     }
 });
-
-let textHex = document.getElementById('textHex');
-let textColor = document.getElementById('textColorSwatch');
-textColor.addEventListener('input', function() {
-    textHex.value = textColor.value;
-    document.body.style.color = textColor.value;
+chrome.runtime.onMessage.addListener((request) => {
+    if (request.action === "changeTextColor") {
+        document.body.style.color = request.color;
+    }
 });
 
 let linkHex = document.getElementById('linkHex');
