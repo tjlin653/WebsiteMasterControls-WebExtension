@@ -18,31 +18,13 @@ chrome.runtime.onMessage.addListener((request) => {
     }
 });
 
-const fontSizeDisplay = document.getElementById('fontSizeDisplay');
-
-let subtractFontSize = document.getElementById('subtractFontSize');
-subtractFontSize.addEventListener('click', () => {
-    let currentFontValue = parseFloat(fontSizeDisplay.textContent);
-    if (!isNaN(currentFontValue)) {
-        currentFontValue--;
-        fontSizeDisplay.textContent = currentFontValue;
+chrome.runtime.onMessage.addListener((request) => {
+    if (request.action === "changeFontSize") {
+        document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textSize => {
+            let currentFontSize = parseFloat(window.getComputedStyle(textSize).fontSize);
+            textSize.style.fontSize = (currentFontSize + request.amount) + 'px';
+        });
     }
-    document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textSize => {
-        let currentFontSize = parseFloat(window.getComputedStyle(textSize).fontSize);
-        textSize.style.fontSize = (currentFontSize -1) + 'px';
-    });
-});
-let addFontSize = document.getElementById('addFontSize');
-addFontSize.addEventListener('click', () => {
-    let currentFontValue = parseFloat(fontSizeDisplay.textContent);
-    if (!isNaN(currentFontValue)) {
-        currentFontValue++;
-        fontSizeDisplay.textContent = currentFontValue;
-    }
-    document.querySelectorAll('h1, h2, h3, h4, h5, h6, p, a, span, li').forEach(textSize => {
-        let currentFontSize = parseFloat(window.getComputedStyle(textSize).fontSize);
-        textSize.style.fontSize = (currentFontSize +1) + 'px';
-    });
 });
 
 const lineHeightDisplay = document.getElementById('lineHeightDisplay');

@@ -33,3 +33,34 @@ linkColor.addEventListener('input', () => {
         });
     });
 });
+
+const fontSizeDisplay = document.getElementById('fontSizeDisplay');
+
+let subtractFontSize = document.getElementById('subtractFontSize');
+subtractFontSize.addEventListener('click', () => {
+    let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
+    if (!isNaN(currentFontDisplay)) {
+        currentFontDisplay--;
+        fontSizeDisplay.textContent = currentFontDisplay;
+    }
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "changeFontSize",
+            amount: -1
+        });
+    });
+});
+let addFontSize = document.getElementById('addFontSize');
+addFontSize.addEventListener('click', () => {
+    let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
+    if (!isNaN(currentFontDisplay)) {
+        currentFontDisplay++;
+        fontSizeDisplay.textContent = currentFontDisplay;
+    }
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "changeFontSize",
+            amount: +1
+        });
+    });
+});
