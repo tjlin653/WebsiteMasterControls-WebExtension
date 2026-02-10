@@ -40,7 +40,7 @@ subtractFontSize.addEventListener('click', () => {
     let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
     if (!isNaN(currentFontDisplay)) {
         currentFontDisplay--;
-        fontSizeDisplay.textContent = currentFontDisplay;
+        fontSizeDisplay.innerHTML = (currentFontDisplay > 0 ? '+' : '') + currentFontDisplay;
     }
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
@@ -54,7 +54,7 @@ addFontSize.addEventListener('click', () => {
     let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
     if (!isNaN(currentFontDisplay)) {
         currentFontDisplay++;
-        fontSizeDisplay.textContent = '+' + currentFontDisplay;
+        fontSizeDisplay.innerHTML = (currentFontDisplay > 0 ? '+' : '') + currentFontDisplay;
     }
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
@@ -70,7 +70,7 @@ subtractLineHeight.addEventListener('click', () => {
     let currentHeightDisplay = parseFloat(lineHeightDisplay.textContent);
     if (!isNaN(currentHeightDisplay)) {
         currentHeightDisplay--;
-        lineHeightDisplay.textContent = currentHeightDisplay;
+        lineHeightDisplay.innerHTML = (currentHeightDisplay > 0 ? '+' : '') + currentHeightDisplay;
     }
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
@@ -84,11 +84,39 @@ addLineHeight.addEventListener('click', () => {
     let currentHeightDisplay = parseFloat(lineHeightDisplay.textContent);
     if (!isNaN(currentHeightDisplay)) {
         currentHeightDisplay++;
-        lineHeightDisplay.textContent = '+' + currentHeightDisplay;
+        lineHeightDisplay.innerHTML = (currentHeightDisplay > 0 ? '+' : '') + currentHeightDisplay;
     }
     chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, {
             action: "changeLineHeight",
+            amount: +1
+        });
+    });
+});
+
+const letterSpaceDisplay = document.getElementById('letterSpaceDisplay');
+subtractLetterSpace = document.getElementById('subtractLetterSpace').addEventListener('click', () => {
+    let currentSpacingDisplay = parseFloat(letterSpaceDisplay.textContent);
+    if (!isNaN(currentSpacingDisplay)) {
+        currentSpacingDisplay--;
+        letterSpaceDisplay.innerHTML = (currentSpacingDisplay > 0 ? '+' : '') + currentSpacingDisplay;
+    }
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "changeLetterSpacing",
+            amount: -1
+        });
+    });
+});
+addLetterSpace = document.getElementById('addLetterSpace').addEventListener('click', () => {
+    let currentSpacingDisplay = parseFloat(letterSpaceDisplay.textContent);
+    if (!isNaN(currentSpacingDisplay)) {
+        currentSpacingDisplay++;
+        letterSpaceDisplay.innerHTML = (currentSpacingDisplay > 0 ? '+' : '') + currentSpacingDisplay;
+    }
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "changeLetterSpacing",
             amount: +1
         });
     });
