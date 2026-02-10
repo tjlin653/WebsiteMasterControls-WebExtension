@@ -21,3 +21,15 @@ textColor.addEventListener('input', () => {
         });
     });
 });
+
+let linkHex = document.getElementById('linkHex');
+let linkColor = document.getElementById('linkColorSwatch');
+linkColor.addEventListener('input', () => {
+    linkHex.value = linkColor.value;
+    chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "changeLinkColor",
+            color: linkColor.value
+        });
+    });
+});

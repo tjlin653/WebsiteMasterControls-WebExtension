@@ -3,19 +3,19 @@ chrome.runtime.onMessage.addListener((request) => {
         document.body.style.backgroundColor = request.color;
     }
 });
+
 chrome.runtime.onMessage.addListener((request) => {
     if (request.action === "changeTextColor") {
         document.body.style.color = request.color;
     }
 });
 
-let linkHex = document.getElementById('linkHex');
-let linkColor = document.getElementById('linkColorSwatch');
-linkColor.addEventListener('input', function() {
-    linkHex.value = linkColor.value;
-    document.querySelectorAll('a').forEach(link => {
-        link.style.color = linkColor.value;
-    });
+chrome.runtime.onMessage.addListener((request) => {
+    if (request.action === "changeLinkColor") {
+        document.querySelectorAll('a').forEach(link => {
+            link.style.color = request.color;
+        });
+    }
 });
 
 const fontSizeDisplay = document.getElementById('fontSizeDisplay');
