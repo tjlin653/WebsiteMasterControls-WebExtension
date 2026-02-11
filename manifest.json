@@ -2,13 +2,11 @@
     "manifest_version": 3,
     "name": "WebsiteMasterControls",
     "version": "0.1.0",
-    "permissions": ["activeTab", "scripting", "storage"],
+    "permissions": ["tabs", "activeTab", "scripting", "microphone", "storage"],
     "host_permissions": ["<all_urls>"],
     "content_scripts": [
         {
-            "matches": [
-                "http://*/*",
-                "https://*/*"],
+            "matches": ["<all_urls>"],
             "js": ["content.js"]
         }
     ],

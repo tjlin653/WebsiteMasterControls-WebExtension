@@ -35,7 +35,7 @@ linkColor.addEventListener('input', () => {
 });
 
 const fontSizeDisplay = document.getElementById('fontSizeDisplay');
-let subtractFontSize = document.getElementById('subtractFontSize');
+const subtractFontSize = document.getElementById('subtractFontSize');
 subtractFontSize.addEventListener('click', () => {
     let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
     if (!isNaN(currentFontDisplay)) {
@@ -49,7 +49,7 @@ subtractFontSize.addEventListener('click', () => {
         });
     });
 });
-let addFontSize = document.getElementById('addFontSize');
+const addFontSize = document.getElementById('addFontSize');
 addFontSize.addEventListener('click', () => {
     let currentFontDisplay = parseFloat(fontSizeDisplay.textContent);
     if (!isNaN(currentFontDisplay)) {
@@ -65,7 +65,7 @@ addFontSize.addEventListener('click', () => {
 });
 
 const lineHeightDisplay = document.getElementById('lineHeightDisplay');
-let subtractLineHeight = document.getElementById('subtractLineHeight');
+const subtractLineHeight = document.getElementById('subtractLineHeight');
 subtractLineHeight.addEventListener('click', () => {
     let currentHeightDisplay = parseFloat(lineHeightDisplay.textContent);
     if (!isNaN(currentHeightDisplay)) {
@@ -79,7 +79,7 @@ subtractLineHeight.addEventListener('click', () => {
         });
     });
 });
-let addLineHeight = document.getElementById('addLineHeight');
+const addLineHeight = document.getElementById('addLineHeight');
 addLineHeight.addEventListener('click', () => {
     let currentHeightDisplay = parseFloat(lineHeightDisplay.textContent);
     if (!isNaN(currentHeightDisplay)) {
@@ -120,4 +120,36 @@ addLetterSpace = document.getElementById('addLetterSpace').addEventListener('cli
             amount: +1
         });
     });
+});
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+console.log(window.SpeechRecognition);
+console.log(window.webkitSpeechRecognition);
+document.querySelector("#micBtn").addEventListener('click', () => {
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US'; 
+    recognition.start();
+    recognition.onresult = function(event) {
+        const transcript = event.results[event.results.length -1][0].transcript.toLowerCase().trim();
+        console.log(transcript);
+        if (transcript.includes('increase font size')) {
+            sendMessage({ action: 'changeFontSize', amount: +1 });
+        } else if (transcript.includes('decrease font size')) {
+            sendMessage({ action: 'changeFontSize', amount: -1 });
+        } else if (transcript.includes('increase line height')) {
+            sendMessage({ action: 'changeLineHeight', amount: +1 });
+        } else if (transcript.includes('decrease line height')) {
+            sendMessage({ action: 'changeLineHeight', amount: -1 });
+        } else if (transcript.includes('increase letter spacing')) {
+            sendMessage({ action: 'changeLetterSpacing', amount: +1 });
+        } else if (transcript.includes('decrease letter spacing')) {
+            sendMessage({ action: 'changeLetterSpacing', amount: -1 });
+        } else { 
+            console.log('command not received');
+        }
+    }
+    recognition.onerror = function(event) {
+        console.error("Speech error:", event.error);
+        document.getElementById('micErrorMessage').innerHTML = "speech recognition error!"
+    };
 });

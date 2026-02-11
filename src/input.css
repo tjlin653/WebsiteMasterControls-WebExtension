@@ -20,6 +20,10 @@ input[type="color"]::-webkit-color-swatch {
   border-bottom-left-radius: 20%;
 }
 
+input[type="color"]::-webkit-color-swatch:hover {
+	cursor: pointer;
+}
+
 input[type="text"] {
 	text-transform: uppercase;
 }
@@ -34,7 +38,7 @@ input[type="text"] {
   }
 
   .addOrSubtract {
-    @apply bg-gray-700 w-10 flex items-center justify-center hover:bg-gray-600 transition-colors duration-100 ease-in-out h-full;
+    @apply bg-gray-700 w-10  h-full flex items-center justify-center hover:bg-gray-600 transition-colors duration-150 ease-in-out hover:cursor-pointer;
   }
 
   .unitContainer {
@@ -59,5 +63,21 @@ input[type="text"] {
 
   .inputHex {
     @apply w-22 h-full text-gray-200 text-base px-2 rounded-r-lg;
+  }
+
+  #micContainer {
+    @apply flex items-center;
+  }
+
+  #micBtn {
+    @apply w-10 h-10 mx-4 my-2 rounded-full bg-amber-500 flex justify-center items-center hover:bg-amber-600 transition-colors duration-150 ease-in-out hover:cursor-pointer;
+  }
+
+  #micIcon {
+    @apply text-lg;
+  }
+
+  #micErrorMessage {
+    @apply text-red-400 text-base;
   }
 }
